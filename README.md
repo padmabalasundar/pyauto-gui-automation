@@ -171,4 +171,4 @@ daily_report_YYYY-MM-DD.png
 
 ## Author
 
-PadmaBalasundar - Developed as a desktop automation project using Python and PyAutoGUI.
+**PadmaBalasundar** - Developed as a desktop automation project using Python and PyAutoGUI.
