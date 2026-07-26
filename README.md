@@ -13,7 +13,7 @@ The bot automatically performs the following tasks:
 5. Creates a new row containing:
    - Current Date & Time
    - Retrieved Data
-   - A short comment
+   - A short comment about the change in value
 6. Saves the Excel file with today's date in the filename.
 7. Takes a screenshot of the completed Excel sheet and saves it.
 
@@ -21,7 +21,7 @@ Example output:
 
 | Date & Time | Data | Comment |
 |-------------|------|---------|
-| 2025-06-17 09:30 AM | NIFTY 50: 25,120.45 | Market opened positive |
+| 2025-06-17 09:30 AM | NIFTY 50: 25,120.45 | Market is DOWN by 102.15 points (-0.43%) compared to the previous close. |
 
 ---
 
@@ -30,6 +30,8 @@ Example output:
 - Python 3.x
 - PyAutoGUI
 - Pyperclip
+- PyScreeze
+- Pillow
 - Microsoft Excel
 - Google Chrome
 
@@ -60,12 +62,11 @@ The bot uses keyboard shortcuts and mouse actions through **PyAutoGUI** to autom
 ## Project Structure
 
 ```
-Daily-Report-Bot/
+pyauto-gui-automation/
 │
-├── main.py
+├── daily_report_bot.py
 ├── README.md
-├── screenshots/
-├── reports/
+├── output/
 └── requirements.txt
 ```
 
@@ -112,17 +113,19 @@ pip install -r requirements.txt
 Run the Python script:
 
 ```bash
-python main.py
+python daily_report_bot.py
 ```
 
 The bot will automatically:
 
-- Open Chrome
-- Fetch the required information
-- Open Excel
-- Enter the data
-- Save the Excel file
-- Capture a screenshot
+- Open Google Chrome
+- Navigate to the Google Finance NIFTY 50 page
+- Copy and extract the latest NIFTY 50 market data
+- Analyze the market movement (UP/DOWN) based on today's change
+- Generate an Excel report with the date, time, market value, and comment
+- Save the Excel report in the `output` folder
+- Open the generated Excel report
+- Capture and save a screenshot of the Excel report
 
 ---
 
@@ -145,7 +148,7 @@ daily_report_2025-06-17.xlsx
 - Screenshot
 
 ```
-daily_report_YYYY-MM-DD.png
+report_snapshot_YYYY-MM-DD.png
 ```
 
 ---
